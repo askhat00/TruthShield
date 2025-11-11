@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — Truth Shield</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    p, label, small {
+        color: white;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #0b0f17, #121826);
+      color: #e6e6e6;
+      font-family: 'Inter', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background-color: #141a29;
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 230, 168, 0.15);
+      padding: 2rem;
+      width: 100%;
+      max-width: 420px;
+    }
+    .card h2 {
+      text-align: center;
+      color: #00e6a8;
+      margin-bottom: 1.5rem;
+    }
+    .form-control {
+      background-color: #1d2333;
+      border: 1px solid #2a3247;
+      color: #fff;
+    }
+    .form-control:focus {
+      border-color: #00e6a8;
+      box-shadow: none;
+    }
+    .btn-custom {
+      background-color: #00e6a8;
+      color: #0b0f17;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      width: 100%;
+    }
+    .btn-custom:hover {
+      background-color: #00c28e;
+    }
+    a {
+      color: #00e6a8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Create Account</h2>
+    <form id="registerForm">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email (corporative)</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" required>
+      </div>
+      <button type="submit" class="btn btn-custom">Register</button>
+      <div class="text-center mt-3">
+        <small>Already have an account? <a href="/login">Login</a></small>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const response = await fetch("/api/register/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password })
+      });
+      if (response.ok) {
+        alert("Account created successfully!");
+        window.location.href = "/login";
+      } else {
+        alert("Registration failed. Try again.");
+      }
+    });
+  </script>
+</body>
+</html>
