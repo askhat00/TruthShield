@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-1iw41v-@yf7^gk=(*+ut1lw*_@1zc@02ko=5_r#^g*pncrbm6u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['truthshield.herokuapp.com']
+ALLOWED_HOSTS = ['truthshield-lbb6.onrender.com']
 
 # Application definition
 
