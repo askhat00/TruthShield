@@ -8,6 +8,8 @@ djangorestframework-simplejwt
 # PDF обработка
 PyMuPDF         # для import fitz
 reportlab       # для генерации PDF через canvas
+dj-rest-auth
+django-allauth
 
 # NLP / ML
 transformers
@@ -23,4 +25,5 @@ dj-database-url
 # HTTP и парсинг запросов (REST Framework уже покрывает)
 # requests — при необходимости для внешних API вызовов
 requests
+
 
