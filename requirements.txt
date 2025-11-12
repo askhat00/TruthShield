@@ -4,7 +4,6 @@ Django>=5.2
 # Django REST Framework
 djangorestframework
 djangorestframework-simplejwt
-djangorestframework-authtoken
 
 # PDF обработка
 PyMuPDF         # для import fitz
@@ -24,3 +23,4 @@ dj-database-url
 # HTTP и парсинг запросов (REST Framework уже покрывает)
 # requests — при необходимости для внешних API вызовов
 requests
+
